@@ -1970,7 +1970,5 @@ select {
     border-radius: 5px;
     padding: 8px;
     background-color: white;
-    -webkit-appearance: none; /* Remove o estilo padrão do iOS */
-    -moz-appearance: none; /* Remove o estilo padrão do Firefox */
-    appearance: none; /* Remove o estilo padrão do navegador */
+  
 }
