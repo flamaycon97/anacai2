@@ -173,9 +173,39 @@
 					<div class="detalhe">
 						<i class="fa fa-star" aria-hidden="true"></i><b>4,7</b> (136 avaliações)
 					</div>
-					<div class="aberto">
-						<i class="fa-solid fa-circle btn-pisca"></i> ABERTO
+						<div class="aberto">
+						<i class="fa-solid fa-circle btn-pisca"></i> 
+						<span id="status-loja">ABERTO</span> 
+						<i class="fa-regular fa-clock horario" id="icone-relogio" style="display: none;"></i> 
+						<span class="horario" id="horario-fechamento" style="display: none;"></span>
 					</div>
+					
+					<script>
+						function atualizarStatusLoja() {
+							const agora = new Date();
+							const horas = agora.getHours();
+							const statusLoja = document.getElementById("status-loja");
+							const iconeRelogio = document.getElementById("icone-relogio");
+							const horarioFechamento = document.getElementById("horario-fechamento");
+					
+							if (horas >= 0 && horas < 2) {
+								statusLoja.textContent = "ABERTO";
+								horarioFechamento.textContent = "até 02:00";
+								iconeRelogio.style.display = "inline";
+								horarioFechamento.style.display = "inline";
+							} else if (horas >= 8 && horas < 23) {
+								statusLoja.textContent = "ABERTO";
+								iconeRelogio.style.display = "none";
+								horarioFechamento.style.display = "none";
+							} else {
+								statusLoja.textContent = "ABERTO";
+								iconeRelogio.style.display = "none";
+								horarioFechamento.style.display = "none";
+							}
+						}
+					
+						atualizarStatusLoja();
+					</script>
 					<!-- <div class="detalhe mostrarHorario">
 						<i class="fa-solid fa-clock"></i> Horário de Funcionamento
 						<span><i class="fa-solid fa-angle-down"></i></span>
