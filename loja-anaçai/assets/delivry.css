@@ -1955,3 +1955,29 @@ input::placeholder {
         box-shadow: 0 0 0 0 rgba(7, 124, 34, 0);
     }
 }
+
+
+.swal2-select {
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    padding: 8px !important;
+    background-color: white !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+.swal2-popup {
+    background-color: #fff !important;
+}
+button,
+input,
+textarea,
+select {
+    border: 1px solid #ccc !important;
+    border-radius: 5px;
+    padding: 8px;
+    background-color: white;
+    -webkit-appearance: none; /* Remove o estilo padrão do iOS */
+    -moz-appearance: none; /* Remove o estilo padrão do Firefox */
+    appearance: none; /* Remove o estilo padrão do navegador */
+}
