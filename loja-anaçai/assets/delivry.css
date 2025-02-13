@@ -1949,8 +1949,15 @@ input::placeholder {
     }
 }
 
+.swal2-popup {
+    background-color: #fff !important;
+}
 
-.swal2-select {
+.swal2-select,
+.swal2-popup button,
+.swal2-popup input,
+.swal2-popup textarea,
+.swal2-popup select {
     border: 1px solid #ccc !important;
     border-radius: 5px !important;
     padding: 8px !important;
@@ -1959,9 +1966,7 @@ input::placeholder {
     -moz-appearance: none !important;
     appearance: none !important;
 }
-.swal2-popup {
-    background-color: #fff !important;
-}
+
 button,
 input,
 textarea,
@@ -1970,5 +1975,7 @@ select {
     border-radius: 5px;
     padding: 8px;
     background-color: white;
-  
+    -webkit-appearance: none; /* Remove o estilo padrão do iOS */
+    -moz-appearance: none; /* Remove o estilo padrão do Firefox */
+    appearance: none; /* Remove o estilo padrão do navegador */
 }
