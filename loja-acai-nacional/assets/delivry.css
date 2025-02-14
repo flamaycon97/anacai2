@@ -1962,28 +1962,23 @@ input::placeholder {
     border-radius: 4px; /* Arredondamento similar ao do navegador */
     padding: 8px; /* Espaçamento interno */
     font-size: 16px;
-    width: 100%; /* Garante que ocupe toda a largura do pop-up */
-    max-width: 100%; /* Impede que ultrapasse a largura do pop-up */
+    width: 100%; /* Ocupa toda a largura disponível do popup */
+    max-width: calc(100% - 20px); /* Garante que não ultrapasse a largura do popup */
     background-color: white; /* Fundo branco */
     appearance: auto; /* Mantém o estilo padrão do sistema */
-    box-sizing: border-box; /* Impede que padding e borda aumentem o tamanho total */
+    box-sizing: border-box; /* Evita que padding e borda aumentem o tamanho total */
 }
 
-/* Garante que o contorno fique destacado ao focar */
-.swal2-popup .swal2-select:focus {
-    border-color: #4D90FE !important; /* Azul padrão do Chrome ao focar */
-    outline: none; /* Remove o contorno extra */
-    box-shadow: 0px 0px 3px rgba(77, 144, 254, 0.7); /* Brilho leve ao focar */
-}
-
-/* Ajuste para telas menores */
+/* Ajusta o pop-up para telas menores */
 @media (max-width: 480px) {
     .swal2-popup {
-        width: 90% !important; /* Ajusta a largura do pop-up para caber melhor */
+        width: 90% !important; /* Ajusta a largura do pop-up para telas pequenas */
         max-width: 100% !important;
     }
     
     .swal2-popup .swal2-select {
         font-size: 14px; /* Reduz um pouco o tamanho da fonte */
+        max-width: 100%; /* Garante que o select não ultrapasse o popup */
     }
 }
+
