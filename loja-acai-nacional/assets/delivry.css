@@ -1956,17 +1956,20 @@ input::placeholder {
     }
 }
 
-/* Adiciona um contorno ao popup do SweetAlert2 */
-.swal2-popup {
-    border: 3px solid #4CAF50; /* Cor e espessura do contorno */
-    border-radius: 10px; /* Arredondamento opcional */
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+/* Estiliza apenas os selects dentro do pop-up SweetAlert2 */
+.swal2-popup .swal2-select {
+    border: 1px solid #ccc !important; /* Contorno cinza padrão */
+    border-radius: 4px; /* Arredondamento similar ao do navegador */
+    padding: 8px; /* Espaçamento interno */
+    font-size: 16px;
+    width: 100%; /* Ocupa toda a largura disponível */
+    background-color: white; /* Fundo branco para manter o padrão */
+    appearance: auto; /* Mantém o estilo padrão do sistema */
 }
 
-/* Garante que o contorno apareça corretamente no mobile */
-@media (max-width: 768px) {
-    .swal2-popup {
-        width: 90% !important; /* Garante que o popup não fique muito grande */
-        max-width: 400px !important;
-    }
+/* Garante que o contorno fique destacado ao focar */
+.swal2-popup .swal2-select:focus {
+    border-color: #4D90FE !important; /* Azul padrão do Chrome ao focar */
+    outline: none; /* Remove o contorno extra */
+    box-shadow: 0px 0px 3px rgba(77, 144, 254, 0.7); /* Brilho leve ao focar */
 }
