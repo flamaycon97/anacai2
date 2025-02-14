@@ -1956,48 +1956,4 @@ input::placeholder {
     }
 }
 
-/* Ajustando o select dentro do pop-up */
-.swal2-popup select {
-    border: 1px solid #ccc !important;
-    border-radius: 4px;
-    padding: 10px; /* Mantém um bom espaçamento interno */
-    font-size: 16px;
-    width: 100%; /* Garante que o select se ajuste ao modal */
-    max-width: 100%;
-    background-color: white;
-    box-sizing: border-box;
-    height: 45px; /* Altura adequada para evitar cortes */
-    display: block; /* Garante alinhamento correto */
-    margin: 10px auto; /* Centraliza e espaça o elemento */
-}
-
-/* Ajuste do botão para ficar mais espaçado do select */
-.swal2-popup button {
-    margin-top: 20px; /* Adiciona mais espaço entre o select e o botão */
-    width: 100%; /* Deixa o botão mais alinhado com o select */
-    padding: 12px;
-    font-size: 18px;
-    background-color: #008000;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-/* Ajuste para telas pequenas */
-@media (max-width: 480px) {
-    .swal2-popup {
-        width: 90% !important;
-        max-width: 100% !important;
-    }
-    
-    .swal2-popup select {
-        width: 100%;
-        font-size: 14px; /* Reduz um pouco para melhor ajuste */
-    }
-
-    .swal2-popup button {
-        font-size: 16px;
-    }
-}
 
