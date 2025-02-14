@@ -1955,3 +1955,18 @@ input::placeholder {
         box-shadow: 0 0 0 0 rgba(7, 124, 34, 0);
     }
 }
+
+/* Adiciona um contorno ao popup do SweetAlert2 */
+.swal2-popup {
+    border: 3px solid #4CAF50; /* Cor e espessura do contorno */
+    border-radius: 10px; /* Arredondamento opcional */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+}
+
+/* Garante que o contorno apareça corretamente no mobile */
+@media (max-width: 768px) {
+    .swal2-popup {
+        width: 90% !important; /* Garante que o popup não fique muito grande */
+        max-width: 400px !important;
+    }
+}
