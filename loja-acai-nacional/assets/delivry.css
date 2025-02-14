@@ -1957,28 +1957,26 @@ input::placeholder {
 }
 
 /* Estiliza apenas os selects dentro do pop-up SweetAlert2 */
-.swal2-popup .swal2-select {
-    border: 1px solid #ccc !important; /* Contorno cinza padrão */
-    border-radius: 4px; /* Arredondamento similar ao do navegador */
-    padding: 8px; /* Espaçamento interno */
-    font-size: 16px;
-    width: 100%; /* Ocupa toda a largura disponível do popup */
-    max-width: calc(100% - 20px); /* Garante que não ultrapasse a largura do popup */
+.swal2-popup select {
+    border: 1px solid #ccc !important; /* Adiciona um contorno */
+    border-radius: 4px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    width: 90%; /* Faz o select ocupar 90% da largura do popup */
+    max-width: 100%; /* Evita que ultrapasse o pop-up */
     background-color: white; /* Fundo branco */
-    appearance: auto; /* Mantém o estilo padrão do sistema */
-    box-sizing: border-box; /* Evita que padding e borda aumentem o tamanho total */
+    box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho total */
 }
 
-/* Ajusta o pop-up para telas menores */
+/* Ajuste para telas pequenas */
 @media (max-width: 480px) {
     .swal2-popup {
-        width: 90% !important; /* Ajusta a largura do pop-up para telas pequenas */
+        width: 90% !important; /* Ajusta a largura do pop-up */
         max-width: 100% !important;
     }
     
-    .swal2-popup .swal2-select {
-        font-size: 14px; /* Reduz um pouco o tamanho da fonte */
-        max-width: 100%; /* Garante que o select não ultrapasse o popup */
+    .swal2-popup select {
+        width: 100%; /* Em telas menores, o select ocupa toda a largura disponível */
     }
 }
 
