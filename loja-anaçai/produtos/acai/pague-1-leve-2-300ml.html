@@ -2,7 +2,7 @@
 <html lang="pt-br" translate="no">
 
 
-<!-- Mirrored from megaacaidelivery.netlify.app/produtos/acai/pague-1-leve-2-300ml by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Feb 2025 21:59:09 GMT -->
+<!-- Mirrored from megaacaidelivery.netlify.app/produtos/acai/pague-1-leve-2-300ml by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Feb 2025 13:59:43 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
@@ -11,10 +11,10 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="shortcut icon" type="image/jpg" href="../../img/logo.webp" />
-	<title>ANAÇAÍ - Faça seu pedido!</title>
+	<link rel="shortcut icon" type="image/jpg" href="../../img/logo.png" />
+	<title>Mega Açaí - Faça seu pedido!</title>
 	<meta name="description"
-		content="Faça seu pedido online no ANAÇAÍ. Acesse e peça agora pelo delivery Contatei!" />
+		content="Faça seu pedido online no Mega Açaí. Acesse e peça agora pelo delivery Contatei!" />
 	<link type="text/css" href="../../assets/delivry.css" rel="stylesheet" />
 	<style type="text/css">
 		h1,
@@ -107,24 +107,20 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar" content="#5b0e5c" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="#5b0e5c" />
-	<meta name="apple-mobile-web-app-title" content="ANAÇAÍ" />
+	<meta name="apple-mobile-web-app-title" content="Mega Açaí" />
 	<!-- SweetAlert2 -->
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
-	<script
-	src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-	data-utmify-prevent-subids
-	async
-	defer
-  ></script><script>
-	window.pixelId = "67ac8ffc1039ad57af6258df";
-	var a = document.createElement("script");
-	a.setAttribute("async", "");
-	a.setAttribute("defer", "");
-	a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-	document.head.appendChild(a);
-  </script>
+    <script>
+		window.pixelId = "67a8d36e92cbb99b9da76ca5";
+		var a = document.createElement("script");
+		a.setAttribute("async", "");
+		a.setAttribute("defer", "");
+		a.setAttribute("src", "../../../cdn.utmify.com.br/scripts/pixel/pixel.js");
+		document.head.appendChild(a);
+	</script>
+	<script src="../../../cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
 </head>
 
 <body>
@@ -138,7 +134,7 @@
 					<div class="somarAoPreco" style="display:none">s</div>
 					<div class="fotoProduto">
 						<figure>
-							<img src="../../img/copo2.webp" width="300px" height="300px" alt="Açaí 300ml" />
+							<img src="../../img/copo2.png" width="300px" height="300px" alt="Açaí 300ml" />
 						</figure>
 					</div>
 					<div class="descricao">
@@ -146,7 +142,7 @@
 						<span class="detalhe">9 Complementos Grátis</span>
 						de <span class="precoPromocao">R$ 39,80</span> por
 						<span class="preco">
-							R$ 22,90<span style="display:none;">22.90</span>
+							R$ 19,90<span style="display:none;">19.90</span>
 						</span>
 						<span class="estoque"><i class="fa-solid fa-circle-down"></i> apenas 32 combos disponíveis</span>
 						<span></span>
@@ -1027,7 +1023,6 @@
 					<div id="precoProduto">R$ 0,00</div>
 					<span class="precoProduto" style="display:none">14.00</span>
 					<button class="btn adicionarProduto" onclick="finalizar()">FINALIZAR PEDIDO</button>
-					<a href="https://pay.deliveryfood.online/5pjw3RoayAKZ2lQ" id="finalizarPedido" style="display: none;"></a>
 				</div>
 			</div>
 		</div>
@@ -1043,39 +1038,50 @@
 		integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-	<script>
-		function finalizar() {
-			Swal.fire({
-				title: "Deseja que entregamos agora?",
-				showDenyButton: true,
-				showCancelButton: false,
-				allowOutsideClick: false,
-				icon: 'question',
-				confirmButtonText: "Sim, por favor!",
-				confirmButtonColor: "green",
-				denyButtonText: `Não, quero agendar a entrega!`,
-				focusConfirm: true,
-			}).then((result) => {
-				if (result.isConfirmed) {
-					location.href = $('a#finalizarPedido').attr('href');
-				} else if (result.isDenied) {
-					Swal.fire({
-						title: "Selecione o dia e a hora, por gentileza!",
-						text: 'Deixe seu pedido agendado e receba na hora combinada.',
-						confirmButtonText: "Agendar pedido!",
-						confirmButtonColor: "green",
-						showCancelButton: false,
-						allowOutsideClick: false,
-						input: "datetime-local",
-					}).then((result) => {
-						location.href = $('a#finalizarPedido').attr('href');
-					});
-				}
-			});
-		}
-	</script>
+		<script>
+			function finalizar() {
+				let produto = "2copos300ml";
+				Swal.fire({
+					title: "Deseja que entregamos agora?",
+					showDenyButton: true,
+					showCancelButton: false,
+					allowOutsideClick: false,
+					icon: 'question',
+					confirmButtonText: "Sim, por favor!",
+					confirmButtonColor: "green",
+					denyButtonColor: '#87adbd',
+					denyButtonText: `Não, quero agendar a entrega!`,
+					focusConfirm: true,
+				}).then((result) => {
+					if (result.isConfirmed) {
+						location.href = "/finalizar/" + window.location.search + "&produto=" + produto;
+					} else if (result.isDenied) {
+						Swal.fire({
+							title: "Selecione o dia e a hora, por gentileza!",
+							text: 'Deixe seu pedido agendado e receba na hora combinada.',
+							confirmButtonText: "Agendar pedido!",
+							confirmButtonColor: "green",
+							showCancelButton: false,
+							allowOutsideClick: false,
+							input: "datetime-local",
+						}).then((result) => {
+							Swal.fire({
+								title: "🔒 Confirme Seu Pedido Agora e Receba no Horário Certo!",
+								html: 'Para garantir que seu açaí <b>chegue exatamente no horário combinado</b>, basta deixar seu pagamento agora.<br><br>Assim, seu pedido fica <b>100% confirmado e pronto para entrega sem atrasos!</b> ⏰🚀',
+								confirmButtonText: "Enviar pedido!",
+								confirmButtonColor: "green",
+								showCancelButton: false,
+								allowOutsideClick: false,
+							}).then((result) => {
+								location.href = "/finalizar/" + window.location.search + "&produto=" + produto;
+							});
+						});
+					}
+				});
+			}
+		</script>
 </body>
 
 
-<!-- Mirrored from megaacaidelivery.netlify.app/produtos/acai/pague-1-leve-2-300ml by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Feb 2025 21:59:10 GMT -->
+<!-- Mirrored from megaacaidelivery.netlify.app/produtos/acai/pague-1-leve-2-300ml by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Feb 2025 13:59:44 GMT -->
 </html>
