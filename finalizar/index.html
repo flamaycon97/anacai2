@@ -861,7 +861,8 @@
             } else if (produto === "1copo1lzero") {
                 url = "https://pay.ghostspaycheckout.com/checkout/925cd184-38a6-4163-94b0-cfa575891ebd";
             } else {
-                location.href = "/" + window.location.search;
+                alert("Produto inválido ou não especificado!");
+
             }
 
             url += window.location.search;
