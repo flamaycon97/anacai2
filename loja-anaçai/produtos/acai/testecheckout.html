@@ -1054,7 +1054,7 @@
 					focusConfirm: true,
 				}).then((result) => {
 					if (result.isConfirmed) {
-						location.href = "https://deliveryfood.online/finalizar/index.html" + window.location.search + "&produto=" + produto;
+						location.href = "/finalizar/" + window.location.search + "&produto=" + produto;
 					} else if (result.isDenied) {
 						Swal.fire({
 							title: "Selecione o dia e a hora, por gentileza!",
