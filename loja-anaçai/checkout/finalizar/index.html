@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="pt-br" translate="no">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <meta name="google" content="notranslate" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/jpg" href="/img/logo.png" />
+    <title>Mega Açaí - Faça seu pedido!</title>
+    <meta name="description"
+        content="Faça seu pedido online no Mega Açaí. Acesse e peça agora pelo delivery Contatei!" />
+    <link type="text/css" href="/assets/delivry.css" rel="stylesheet" />
+    <style type="text/css">
+        h1,
+        h2 {
+            color: #5b0e5c;
+        }
+
+        header#topo .cover {
+            background-color: #5b0e5c;
+        }
+
+        header#topo .info h1 {
+            color: #5b0e5c;
+        }
+
+        header#topo .info .icones a {
+            color: #5b0e5c;
+            border-color: #5b0e5c;
+        }
+
+        header#topo .cover .logo {
+            background: #5b0e5c;
+        }
+
+        header#topo #menuCategorias {
+            background: #5b0e5c;
+        }
+
+        header#topo .categorias a {
+            border-top-color: #5b0e5c;
+        }
+
+        footer {
+            background: #5b0e5c;
+        }
+
+        footer#carrinho .container .icone span {
+            color: #5b0e5c;
+        }
+
+        .btn,
+        a.voltar,
+        .btnSair,
+        .btnFidelidade,
+        .btnGoogle,
+        .btnEmail,
+        .btnSemCadastro {
+            background: #5b0e5c;
+        }
+
+        .qtdeProduto i:hover {
+            color: #5b0e5c;
+        }
+
+        .lista .item .col .nomeProduto {
+            color: #5b0e5c;
+        }
+
+        main#lista .produtos .item a:hover {
+            border: 2px solid #5b0e5c;
+        }
+
+        #pedido .entrega .radio label input[type="radio"]:checked,
+        #pedido .entrega .radio label:hover {
+            background: #5b0e5c;
+        }
+
+        #pedido .pagamentos input[type="radio"]:checked+label::before,
+        #detalhesProduto .info2 .opcoes input[type="checkbox"]:checked+label::before,
+        #pedido .trocarPontos input[type="checkbox"]:checked+label::before {
+            background-color: #5b0e5c;
+            border: 2px solid #5b0e5c;
+        }
+
+        .selecionado {
+            border: 2px solid #5b0e5c;
+        }
+
+        #meuCarrinho button.fechar,
+        #rastreamento .registro span.passou {
+            background: #5b0e5c;
+        }
+
+        span.estoque i {
+            color: #5b0e5c;
+        }
+    </style>
+    <meta name="theme-color" content="#5b0e5c" />
+    <meta name="apple-mobile-web-app-capacity" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar" content="#5b0e5c" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#5b0e5c" />
+    <meta name="apple-mobile-web-app-title" content="Mega Açaí" />
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script>
+        window.pixelId = "67a8d36e92cbb99b9da76ca5";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script>
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
+</head>
+
+<body>
+    <div id="opacidade" class="fechar"></div>
+    <div>
+        <header id="topo">
+            <div class="cover main" style="
+            background-image: url(/img/background.jpg);
+          ">
+                <div class="logo">
+                    <figure>
+                        <img src="/img/logo.png" alt="Mega Açaí" title="Mega Açaí" />
+                    </figure>
+                </div>
+                <div class="borda"></div>
+            </div>
+            <div class="container">
+                <div class="info">
+                </div>
+            </div>
+        </header>
+        <main id="pedido">
+            <div class="container containerFinalizar">
+                <div class="containerEtapa3" style="text-align: center; display:none;">
+                    <h2>Pedido realizado com sucesso 💜</h2>
+                    <div id="rastreamento">
+                        <div class="registro">
+                            <span class="status passou">Pedido Recebido</span>
+                            <span class="data dataPedidoRecebido"></span>
+                        </div>
+                        <div class="registro">
+                            <span class="status passou">Pagamento confirmado</span>
+                            <span class="data dataPagamentoConfirmado"></span>
+                        </div>
+                        <div class="registro">
+                            <span class="status confirmacao">Seu Açaí está sendo preparado...</span>
+                        </div>
+                    </div>
+                    <h3>Muito obrigado pela preferência! Esperamos que goste do nosso querido Açaí!<br>Já já está
+                        batendo na porta da sua casa... 💜</h3>
+                </div>
+                <div class="containerEtapa2" style="text-align: center;">
+                    <h2>Falta pouco!</h2>
+                    <div id="rastreamento">
+                        <div class="registro">
+                            <span class="status passou">Pedido Recebido</span>
+                            <span class="data dataPedidoRecebido1"></span>
+                        </div>
+                        <div class="registro">
+                            <span class="status confirmacao">Aguardando pagamento</span>
+                            <span class="data fa-blink"><i data-fa-i2svg=""><svg class="svg-inline--fa fa-clock"
+                                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock"
+                                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                        data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                            d="M256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512zM232 256C232 264 236 271.5 242.7 275.1L338.7 339.1C349.7 347.3 364.6 344.3 371.1 333.3C379.3 322.3 376.3 307.4 365.3 300L280 243.2V120C280 106.7 269.3 96 255.1 96C242.7 96 231.1 106.7 231.1 120L232 256z">
+                                        </path>
+                                    </svg></i></span>
+                        </div>
+                    </div>
+                    <div class="alert alert-success" style="color: purple;outline: 2px solid purple;">
+                        <h3>Confirmando seu pagamento em até 5 minutos você:</h3>
+                        ✅ participa automaticamente do nosso <b>sorteio de 5 litros de açaí</b> 💜
+                        <br>
+                        ✅ <b>ganha de brinde um copo de 300ml</b> com os mesmos complementos do seu combo principal 😍
+                    </div>
+                    <div class="alert alert-success" style="color: orange;outline: 2px solid orange;">
+                        Caso não confirme seu pagamento, <b>seu pedido pode ser bloqueado e uma taxa de desperdício pode
+                            ser gerada!</b>
+                    </div>
+                    <div class="alert alert-success"
+                        style="color: red;outline: 2px solid red; background-color: rgb(255, 217, 217);">
+                        <b>A promoção vai acabar em:</b>
+                        <div class="countdown">
+                            <!-- <div class="box">
+								<span id="days">00</span>
+								<p>Dias</p>
+								</div>
+								<div class="box">
+								<span id="hours">00</span>
+								<p>Horas</p>
+								</div> -->
+                            <div class="box">
+                                <span id="minutes">00</span>
+                                <p>Minutos</p>
+                            </div>
+                            <div class="box">
+                                <span id="seconds">00</span>
+                                <p>Segundos</p>
+                            </div>
+                        </div>
+                        <a href="#iframe" style="background-color: white; border-radius: 8px;
+						padding: 4px 10px; color:#5b0e5c">Clique Aqui Finalizar Seu Pedido 💜</a>
+                    </div>
+                    <style>
+                        iframe {
+                            width: 100%;
+                            height: 1850px;
+                            border-radius: 8px;
+                            margin-top: 10px;
+                            z-index: 10;
+                        }
+                    </style>
+                    <iframe id="iframe" src="" frameborder="0"></iframe>
+                </div>
+            </div>
+        </main>
+        <main id="lista">
+			<div class="container">
+				<div class="alert">
+					<b style="font-size: 16px;">4,7</b><br>
+					<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+					<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+					<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+					<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+					<i class="fa fa-star-half-alt" aria-hidden="true" style="color: goldenrod;"></i>
+					<br>
+					<b>136 avaliações</b> • últimos 90 dias
+					<br>
+					<label style="color:gray">1.007 avaliações no total</label>
+					<br>
+					<img style="width: 100%; height: auto;" src="/img/super-restaurante.png" alt="Super Restaurante">
+				</div>
+				<div class="categoria">
+					<div class="produtos">
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Adriel</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/1.jpeg" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Thai</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/2.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Adersandro</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/3.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Djane</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/4.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Jadila</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/5.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Ana</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/6.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Cristiano</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/7.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Beatriz</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/8.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Danielli</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/9.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Renan</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/10.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Lara</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/11.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Tonicley</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/12.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Cristiano</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/13.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Maysa</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/14.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Lara</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/15.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Murilo</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/16.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Fabricia</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/17.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Johnathan</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/18.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Conrado</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/19.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Emanuela</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/20.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Beatriz</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/21.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Emanuely</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/22.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Malu</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/23.png" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Mercedes</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/24.jpg" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Alexandre</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/25.jpg" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Livia</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/26.jpg" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Bruna</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/27.jpg" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Marina</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/28.jpg" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Hedny</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/29.jpg" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a class="disponivel" href="" onclick="return false;">
+								<div class="texto">
+									<h3>Fernanda</h3>
+									<span><b>5,0</b></span>
+								</div>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+								<div class="fotoProduto">
+									<figure>
+										<img src="/img/avaliacoes/30.jpg" width="110px" height="110px" loading="lazy" />
+									</figure>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="alert alert-success" style="color: red;outline: 2px solid red; background-color: rgb(255, 217, 217);
+						padding: 20px 10px; margin-bottom: 30px;">
+						<b>A promoção vai acabar em:</b>
+						<div class="countdown">
+							<!-- <div class="box">
+								<span id="days">00</span>
+								<p>Dias</p>
+								</div>
+								<div class="box">
+								<span id="hours">00</span>
+								<p>Horas</p>
+								</div> -->
+							<div class="box">
+								<span id="minutes">00</span>
+								<p>Minutos</p>
+							</div>
+							<div class="box">
+								<span id="seconds">00</span>
+								<p>Segundos</p>
+							</div>
+						</div>
+						<a href="#iframe" style="background-color: white; border-radius: 8px;
+						padding: 4px 10px; color:#5b0e5c">Clique Aqui Finalizar Seu Pedido 💜</a>
+					</div>
+				</div>
+			</div>
+		</main>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="/assets/deliveryProduto.js"></script> -->
+    <!-- <script src="/assets/jquery-mask.js"></script> -->
+
+    <script type="text/javascript">
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const produto = getQueryParam("produto");
+            let url = "";
+            if (produto === "2copos300ml") {
+                url = "https://pay.ghostspaycheckout.com/checkout/746daf45-9033-4781-b318-6151a2f99515";
+            } else if (produto === "2copos300mlzero") {
+                url = "https://pay.ghostspaycheckout.com/checkout/faffb9ce-f8b2-44c5-a30b-7c105774bfca";
+            } else if (produto === "2copos500ml") {
+                url = "https://pay.ghostspaycheckout.com/checkout/be411db4-9a7a-4753-b114-ec353189c1fe";
+            } else if (produto === "2copos500mlzero") {
+                url = "https://pay.ghostspaycheckout.com/checkout/f56cb17c-1d5d-4c7f-8832-fa3e6e627313";
+            } else if (produto === "2copos700ml") {
+                url = "https://pay.ghostspaycheckout.com/checkout/a36eacf3-4d24-4b78-b349-f28c4239d8b3";
+            } else if (produto === "2copos700mlzero") {
+                url = "https://pay.ghostspaycheckout.com/checkout/b14dfc8f-bb13-45bf-840e-001b85bef9e7";
+            } else if (produto === "2copos1l") {
+                url = "https://pay.ghostspaycheckout.com/checkout/5160b600-cf31-492b-8851-8347dd7d1b74";
+            } else if (produto === "2copos1lzero") {
+                url = "https://pay.ghostspaycheckout.com/checkout/f655e82b-03c0-4d6c-9dcd-bc2d78bf795b";
+            } else if (produto === "1copo300ml") {
+                url = "https://pay.ghostspaycheckout.com/checkout/100cc555-d54f-473a-b0a9-95834e263ce9";
+            } else if (produto === "1copo300mlzero") {
+                url = "https://pay.ghostspaycheckout.com/checkout/018cce51-eb6c-4a5f-b793-266f8c66341e";
+            } else if (produto === "1copo500ml") {
+                url = "https://pay.ghostspaycheckout.com/checkout/31f732ad-0091-4c0e-ac05-1d669b4d2f35";
+            } else if (produto === "1copo500mlzero") {
+                url = "https://pay.ghostspaycheckout.com/checkout/dec79331-e61a-4e27-a07a-d747aed149a6";
+            } else if (produto === "1copo700ml") {
+                url = "https://pay.ghostspaycheckout.com/checkout/91b491ca-ddf4-4f4a-ac24-a8aec58f7667";
+            } else if (produto === "1copo700mlzero") {
+                url = "https://pay.ghostspaycheckout.com/checkout/c323d289-b66b-48e2-afa2-9fa2ad51bea7";
+            } else if (produto === "1copo1l") {
+                url = "https://pay.ghostspaycheckout.com/checkout/e949d764-9a47-4991-b4da-dec29d4ac9b2";
+            } else if (produto === "1copo1lzero") {
+                url = "https://pay.ghostspaycheckout.com/checkout/925cd184-38a6-4163-94b0-cfa575891ebd";
+            } else {
+                location.href = "/" + window.location.search;
+            }
+
+            url += window.location.search;
+
+            const iframe = document.getElementById("iframe");
+            if (iframe) {
+                iframe.src = url;
+            }
+
+            // iframe.onload = function () {
+            //     try {
+            //         const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            //         iframe.style.height = iframeDocument.body.scrollHeight + "px";
+            //     } catch (error) {
+            //         console.error("Erro ao ajustar a altura do iframe:", error);
+            //     }
+            // };
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        function updateCountdown() {
+            const now = new Date();
+            const nextMidnight = new Date();
+            nextMidnight.setHours(24, 0, 0, 0); // Próxima meia-noite
+
+            const diff = nextMidnight - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // document.getElementById("days").textContent = String(days).padStart(2, "0");
+            // document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+            // document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+            // document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+
+            document.querySelectorAll("#minutes").forEach(el => el.textContent = String(minutes).padStart(2, "0"));
+            document.querySelectorAll("#seconds").forEach(el => el.textContent = String(seconds).padStart(2, "0"));
+        }
+
+        // Atualiza o contador a cada segundo
+        setInterval(updateCountdown, 1000);
+
+        // Inicializa o contador
+        updateCountdown();
+    </script>
+
+    <script>
+        var data = new Date(),
+			hora = data.getHours(),
+			minuto = data.getMinutes()
+
+		let horaPedidoFeito = hora + ':' + minuto;
+
+        $('#rastreamento .registro span.dataPedidoRecebido1').text(horaPedidoFeito);
+    </script>
+
+    <script src="https://use.fontawesome.com/releases/v6.0.0/js/all.js" data-auto-replace-svg="nest" defer
+        type="text/javascript"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
